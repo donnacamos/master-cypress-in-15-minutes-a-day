@@ -1,0 +1,26 @@
+{
+  "name": "master-cypress-in-15-minutes-a-day",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cypress.config.js",
+  "dependencies": {
+    "cypress": "^10.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donnacamos/master-cypress-in-15-minutes-a-day.git"
+  },
+  "keywords": [
+    "cypress"
+  ],
+  "author": "Donna Amos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donnacamos/master-cypress-in-15-minutes-a-day/issues"
+  },
+  "homepage": "https://github.com/donnacamos/master-cypress-in-15-minutes-a-day#readme"
+}
