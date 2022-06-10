@@ -6,3 +6,42 @@ context('Block Buster Film Reviews - Home Page', () => {
         cy.get('h1').should('have.text', 'Block Buster Film Reviews');
     });
 });
+
+context('The left navigation menu', () => {
+    beforeEach(() => {
+        cy.get('.menu-left a:visible').as('nav-links')
+    })
+
+    it('The first navigation link points to Top rated movies', () => {
+        cy.get('.menu-left a:visible').first().should('have.text', 'Top rated movies')
+        cy.get('@nav-links').first().should('have.text', 'Top rated movies')
+    })
+
+    it('The last navigation link points to Celebrities', () => {
+        cy.get('@nav-links').find('a:visible').last().should('have.text', 'Celebrities')
+    })
+
+    it('Nested searches', () => {
+        cy.root()
+        cy.get('.menu-left').within(() => {
+            cy.root()
+            cy.get('a:visible').should('have.text', 'Top rated movies')
+            cy.get('a:visible').should('have.text', 'Celebrities')
+        })
+    })
+
+    it('The navigation links have the correct text', () => {
+        cy.get('@nav-linksle').eq(0).should('have.text', 'Top rated movies')
+        cy.get('@nav-links').eq(1).should('have.text', 'Popular movies')
+        cy.get('@nav-links').eq(-1).should('have.text', 'Celebrities')
+    })
+})
+
+context.skip('Anti-patterns', () => {
+    it("Don't use variables", () => {
+        // This is an anti-pattern. Don't use! 
+        const menuLeft = cy.get('.menu-left')
+        menuLeft.find('a:visible').first().should('have.text', 'Top rated movies')
+    })
+})
+
